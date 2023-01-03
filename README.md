@@ -24,7 +24,52 @@ In [**Project 1**](https://github.com/StrangeJay/DevOps_Journey) you implemented
 This LAMP website server(s) can be located anywhere in the world and you can reach it also from any part of the globe over global network. 
 Assuming you type in $\color{pink}{www\ .propitixhomes\ .com}$ on your browser, it means your browser is considered the **"Client".** It is sending requests to the remote server, and is expecting a response from the remote server.  
 
-Let's take a 
+Let's take a very quick example and see Client-Server communication in action.  
+
+- Open up your Ubuntu or Windows terminal and run the curl command:
+> curl -Iv www.propitixhomes.com   
+
+> **Note** If your Ubuntu does not have 'curl' you can install it by running `sudo apt install curl`
+
+In this example, your terminal will be the **client**, while $\color{pink}{www\ .facebook\ .com}$ will be the **server.**   
+
+See the response from the remote server in the below output. You can also see that the requests from the URL are being served by a computer with an IP address 31.13.83.36 on port 80. *More on IP addresses and ports when we get to Networking related projects*  
+
+![Screenshot_20230103_224903](https://user-images.githubusercontent.com/105195327/210447082-251f186a-d786-4daa-aedc-029b4d4fd612.png)  
+Another way to get a server’s IP address is to use a simple diagnostic tool like **‘ping’**, it will also show round-trip time – time for packets to go to and back from the server, this tool uses [ICMP protocol](https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol).  
+
+
+### Side Self Study  
+1. Read about [ping](https://en.wikipedia.org/wiki/Ping_(networking_utility)) and [traceroute](https://en.wikipedia.org/wiki/Traceroute) network diagnostic utilities. Be able to make sense of the results of using these tools.  
+
+2. Refresh your knowledge of [basic SQL commands](https://www.w3schools.com/sql/), and be able to perform simple SHOW, CREATE, DROP, SELECT and INSERT SQL queries.   
+
+---
+
+# IMPLEMENT A CLIENT SERVER ARCHITECTURE USING MYSQL DATABASE MANAGEMENT SYSTEM (DBMS).  
+
+## TASK – Implement a Client-Server Architecture using MySQL Database Management System (DBMS).  
+
+To demonstrate a basic client-server using MySQL Relational Database Management System (RDBMS), follow the instructions below:  
+
+- Create and configure two Linux-based virtual servers (EC2 instances in AWS).  
+> Server A name - `mysql_server`  
+> Server B name - `mysql_client`  
+
+- On $\color{pink}{mysql\ server}$ Linux Server install MySQL **Server** 
+Refer to [project2](https://github.com/StrangeJay/DevOps-Project2) if you've forgotten how to do this.     
+
+- On $\color{pink}{mysql\ client}$ Linux Server install MySQL **Client** software.  
+
+- By default, both of your EC2 virtual servers are located in the same local virtual network, so they can communicate with each other using local IP addresses. Use mysql server's local IP address to connect from mysql client. MySQL server uses TCP port 3306 by default, so you will have to open it by creating a new entry in ‘Inbound rules’ in ‘mysql server’ Security Groups. For extra security, do not allow all IP addresses to reach your ‘mysql server’ – allow access only to the specific local IP address of your ‘mysql client’.   
+
+- You might need to configure MySQL server to allow connections from remote hosts.  
+> sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf  
+
+Replace ‘127.0.0.1’ to ‘0.0.0.0’ like this:  
+![bind address mysql](https://user-images.githubusercontent.com/105195327/210453444-3f9e23c3-bec1-446b-b49f-52d643f88d13.png)   
+
+
 
 
 

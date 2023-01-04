@@ -27,7 +27,7 @@ Assuming you type in $\color{pink}{www\ .propitixhomes\ .com}$ on your browser, 
 Let's take a very quick example and see Client-Server communication in action.  
 
 - Open up your Ubuntu or Windows terminal and run the curl command:
-> curl -Iv www.propitixhomes.com   
+> curl -Iv www.facebook.com   
 
 > **Note** If your Ubuntu does not have 'curl' you can install it by running `sudo apt install curl`
 
@@ -59,7 +59,12 @@ To demonstrate a basic client-server using MySQL Relational Database Management 
 - On $\color{pink}{mysql\ server}$ Linux Server install MySQL **Server** 
 Refer to [project2](https://github.com/StrangeJay/DevOps-Project2) if you've forgotten how to do this.     
 
-- On $\color{pink}{mysql\ client}$ Linux Server install MySQL **Client** software.  
+- On $\color{pink}{mysql\ client}$ Linux Server install MySQL **Client** software.  This can be done by running the following code:  
+> sudo apt update  
+> sudo apt upgrade 
+> sudo apt install mysql-client   
+
+> **Note** We want to be able to connect to the mysql server on our server instance, from the client instance, so there's no need to install the mysql server on the client instance. Just install the client software.  
 
 - By default, both of your EC2 virtual servers are located in the same local virtual network, so they can communicate with each other using local IP addresses. Use mysql server's local IP address to connect from mysql client. MySQL server uses TCP port 3306 by default, so you will have to open it by creating a new entry in ‘Inbound rules’ in ‘mysql server’ Security Groups. For extra security, do not allow all IP addresses to reach your ‘mysql server’ – allow access only to the specific local IP address of your ‘mysql client’.   
 
@@ -69,7 +74,17 @@ Refer to [project2](https://github.com/StrangeJay/DevOps-Project2) if you've for
 Replace ‘127.0.0.1’ to ‘0.0.0.0’ like this:  
 ![bind address mysql](https://user-images.githubusercontent.com/105195327/210453444-3f9e23c3-bec1-446b-b49f-52d643f88d13.png)   
 
+- From $\color{pink}{mysql\ client}$  Linux Server connect remotely to $\color{pink}{mysql\ server}$ Database Engine without using $\color{pink}{SSH}$. You must use the $\color{pink}{mysql}$ utility to perform this action.   
 
+- Check that you have successfully connected to a remote MySQL server and can perform SQL queries:  
+> Show databases;  
+
+If you see an output similar to the image below, then **Congratulations** you have successfully completed this project – you have deployed a fully functional MySQL Client-Server set up.  
+![Screenshot_20230104_084721](https://user-images.githubusercontent.com/105195327/210508484-b730c3ef-66fa-4c45-bf1e-6822cfb0036f.png)  
+
+Well Done! You are getting there gradually. You can further play around with this set up and practice in creating/dropping databases & tables and inserting/selecting records to and from them.  
+---
+THE END!!!
 
 
 

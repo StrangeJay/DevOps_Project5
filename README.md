@@ -82,10 +82,14 @@ Replace ‘127.0.0.1’ to ‘0.0.0.0’ like this:
 ![bind address mysql](https://user-images.githubusercontent.com/105195327/210453444-3f9e23c3-bec1-446b-b49f-52d643f88d13.png)   
 
 - From the $\color{pink}{mysql\ client}$  Linux Server connect remotely to the $\color{pink}{mysql\ server}$ Database Engine without using $\color{pink}{SSH}$. You must use the $\color{pink}{MySQL}$ utility to perform this action.   
-Connect to mysql_server by running the following command `mysql -u username -h host/IP -p password`
+Connect to mysql_server by running the following command `mysql -u username -h host/IP -p password`    
+   
+![Screenshot_20230104_100347](https://user-images.githubusercontent.com/105195327/210520379-fe9c48bb-ad7e-4ed8-9b35-08afb04b5c3e.png)   
 
 - Check that you have successfully connected to a remote MySQL server and can perform SQL queries:  
 > Show databases;  
+
+![Screenshot_20230104_100536](https://user-images.githubusercontent.com/105195327/210520555-a3e686da-5578-4767-9c78-d52339021bc3.png)   
 
 If you see an output similar to the image below, then **Congratulations** you have completed this project – you have deployed a fully functional MySQL Client-Server setup.  
 ![Screenshot_20230104_084721](https://user-images.githubusercontent.com/105195327/210508484-b730c3ef-66fa-4c45-bf1e-6822cfb0036f.png)  

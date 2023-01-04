@@ -55,18 +55,25 @@ To demonstrate a basic client-server using MySQL Relational Database Management 
 - Create and configure two Linux-based virtual servers (EC2 instances in AWS).  
 > Server A name - `mysql_server`  
 > Server B name - `mysql_client`  
+  
+![Screenshot_20230104_095055](https://user-images.githubusercontent.com/105195327/210517911-db89858f-ceb3-42a6-846f-b31d37367f1c.png)   
 
 - On $\color{pink}{mysql\ server}$ Linux Server install MySQL **Server**. 
 Refer to [project2](https://github.com/StrangeJay/DevOps-Project2) if you've forgotten how to do this.     
+> **Note** Ensure you create remote user and grant it the required permissions.  
 
 - On the $\color{pink}{mysql\ client}$ Linux Server install MySQL **Client** software.  This can be done by running the following code:  
 > sudo apt update   
 > sudo apt upgrade   
-> sudo apt install mysql-client   
+> sudo apt install mysql-client    
+
+![Screenshot_20230104_094911](https://user-images.githubusercontent.com/105195327/210517720-b3ef608a-cc4e-42ed-91a4-3ce621b5bfdb.png)   
 
 > **Note** We want to be able to connect to the MySQL server on our mysql_server instance, from the mysql_client instance, so there's no need to install the MySQL server on the client instance. Just install the client software.  
 
 - By default, both of your EC2 virtual servers are located in the same local virtual network, so they can communicate with each other using local IP addresses. Use mysql_server's local IP address to connect from mysql_client. MySQL server uses TCP port 3306 by default, so you will have to open it by creating a new entry in ‘Inbound rules’ in ‘mysql_server’ Security Groups. For extra security, do not allow all IP addresses to reach your ‘mysql server’ – allow access only to the specific local IP address of your ‘mysql client’.   
+![Screenshot_20230104_095237](https://user-images.githubusercontent.com/105195327/210518311-08cb96be-3804-4977-a1ba-64c799fc38fa.png)   
+
 
 - You might need to configure mysql_server to allow connections from remote hosts.  
 > sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf  
@@ -75,6 +82,7 @@ Replace ‘127.0.0.1’ to ‘0.0.0.0’ like this:
 ![bind address mysql](https://user-images.githubusercontent.com/105195327/210453444-3f9e23c3-bec1-446b-b49f-52d643f88d13.png)   
 
 - From the $\color{pink}{mysql\ client}$  Linux Server connect remotely to the $\color{pink}{mysql\ server}$ Database Engine without using $\color{pink}{SSH}$. You must use the $\color{pink}{MySQL}$ utility to perform this action.   
+Connect to mysql_server by running the following command `mysql -u username -h host/IP -p password`
 
 - Check that you have successfully connected to a remote MySQL server and can perform SQL queries:  
 > Show databases;  

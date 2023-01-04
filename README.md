@@ -60,8 +60,8 @@ To demonstrate a basic client-server using MySQL Relational Database Management 
 Refer to [project2](https://github.com/StrangeJay/DevOps-Project2) if you've forgotten how to do this.     
 
 - On $\color{pink}{mysql\ client}$ Linux Server install MySQL **Client** software.  This can be done by running the following code:  
-> sudo apt update  
-> sudo apt upgrade 
+> sudo apt update   
+> sudo apt upgrade   
 > sudo apt install mysql-client   
 
 > **Note** We want to be able to connect to the mysql server on our server instance, from the client instance, so there's no need to install the mysql server on the client instance. Just install the client software.  
